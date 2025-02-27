@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 INPUT 1 OUTPUT TEMPLATE</title>
+    <style>
+
+        /* STYLE FOR THE INPUT FIELD */
+        #charInput {
+
+        }
+
+        /* STYLE FOR THE SUBMIT BUTTON */
+        #submitButton {
+
+        }
+
+        /* STYLE FOR THE IMAGE */
+        #displayedImage {
+            display: none; /* This line is mandatory */
+        }
+    </style>
+</head>
+<body>
+
+    
+    <!-- INPUT FIELD FOR 1 CHARACTER -->
+    <input type="text" id="charInput" maxlength="1">
+
+    <!-- BUTTON TO DISPLAY IMAGE -->
+    <button onclick="displayImage()" id="submitButton">Show Image</button>
+
+    <!-- IMAGE TO DISPLAY -->
+    <img id="displayedImage" src="" alt="Displayed Image">
+
+
+    <!-- Image Display Script Below -->
+    <script>
+        // Array of images
+        // DIRECTIONS: UPDATE THE URLS WITH THE RELATIVE LINKS OF YOUR IMAGES
+        const images = [
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/A.jpeg?v=1740654024086", //A
+        "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/B.jpeg?v=1740654027496", //B
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/C.jpeg?v=1740654030737", //C
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/D.jpeg?v=1740654033711", //D
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/E.jpeg?v=1740654036309", //E
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/F.jpeg?v=1740654049488", //F
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/G.jpeg?v=1740654051620", //G
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/H.jpeg?v=1740654054554", //H
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/I.jpeg?v=1740654057430", //I
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/J.jpeg?v=1740654060698", //J
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/K.jpeg?v=1740654063100", //K
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/L.jpeg?v=1740654066299", //L
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/M.jpeg?v=1740654069010", //M
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/N.jpeg?v=1740654071712", //N
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/O.jpeg?v=1740654074335", //O
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/P.jpeg?v=1740654077350", //P
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/Q.jpeg?v=1740654080946", //Q
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/R.jpeg?v=1740654084362", //R
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/S.jpeg?v=1740654086718", //S
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/T.jpg?v=1740654090232", //T
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/U.jpeg?v=1740654092864", //U
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/V.jpeg?v=1740654095492", //V
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/W.jpeg?v=1740654098810", //W
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/X.jpeg?v=1740654101447", //X
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/Y.jpg?v=1740654103831", //Y
+            "https://cdn.glitch.global/76efd0d9-574b-4656-bb82-e7cfd0543507/Z.jpeg?v=1740654105725"  //Z
+        ];
+
+        function displayImage() {
+            const input = document.getElementById("charInput").value.toUpperCase();
+            const imgElement = document.getElementById("displayedImage");
+            
+            // Assign an image based on character (A-Z)
+            const index = input.charCodeAt(0) - 65; // 'A' is 65 in ASCII
+            if (index >= 0 && index < images.length) {
+                imgElement.src = images[index];
+                imgElement.style.display = "block";
+            } else {
+                /* 
+                alert("Please enter a letter between A and Z.");
+                imgElement.style.display = "none";
+                */
+
+                // IF INVALID INPUT IS ENTERED, DISPLAY ALTERNATE IMAGE
+                imgElement.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDJvdWk1a21lMzJnNXZqdWM0dnduc3ZkOHRxZjdoNmNrMGxhcTl0MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c2r4yL76SJ2Tgzzd4S/giphy.gif"
+                imgElement.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
